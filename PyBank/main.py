@@ -1,13 +1,9 @@
 import os
 import csv
 import numpy
-#import inspect
+##import inspect
 #print(os.listdir('Resources/'))
-#
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-#Main Function
-pyBank()
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
 
 
 '''
@@ -23,7 +19,6 @@ def pyBank():
     max_values = find_min_max(csv_lst)
     #Print Result
     print_result(totals, max_values)
-#total_revenue = 0
 
 
 '''
@@ -32,7 +27,7 @@ def pyBank():
  '''
 def read_csvfile():
     #Get the path of the file
-    file_path = os.path.join('Resources','budget_data.csv')
+    file_path = os.path.join('.','PyBank','Resources','budget_data.csv')
     #Check point
     #print(file_path)
 
@@ -106,10 +101,24 @@ totals: Dictionary of total months and total total_sum
 max_values: Dictionary of avarage, max and min profit/loss
 '''
 def print_result(totals, max_values):
-    print("Financial Analysis")
-    print("-----------------------------------\n")
-    print("Total Months : {}".format(totals["months"]))
-    print("Total : ${:,.2f}".format(totals["sum"]))
-    print("Average profit/loss : ${:,.2f}".format(max_values["profitloss"]))
-    print("Greatest Increase in Profits :{} (${:,.2f})".format(max_values["max"][0], max_values["max"][1]))
-    print("Greatest Decrease in Profits :{} (${:,.2f})".format(max_values["min"][0], max_values["min"][1]))
+    result_str = "Financial Analysis\n"
+    result_str += "-" *30 + "\n"
+    result_str += "Total Months : {}\n".format(totals["months"])
+    result_str += "Total : ${:,.2f}\n".format(totals["sum"])
+    result_str += "Average profit/loss : ${:,.2f}\n".format(max_values["profitloss"])
+    result_str += "Greatest Increase in Profits :{} (${:,.2f})\n".format(max_values["max"][0], max_values["max"][1])
+    result_str += "Greatest Decrease in Profits :{} (${:,.2f})\n".format(max_values["min"][0], max_values["min"][1])
+
+    print(result_str)
+
+    #Print it to the file
+    file_write_path = os.path.join('.','PyBank','Resources','budget_result.csv')
+    with open(file_write_path, 'w') as f_write:
+        print(result_str, file=f_write)
+
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+#Main Function
+pyBank()
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
