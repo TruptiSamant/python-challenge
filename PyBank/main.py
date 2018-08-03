@@ -4,8 +4,6 @@ import numpy
 ##import inspect
 #print(os.listdir('Resources/'))
 
-
-
 '''
 * pyBank(): Python script for analyzing the financial records of your company
 '''
@@ -27,7 +25,7 @@ def pyBank():
  '''
 def read_csvfile():
     #Get the path of the file
-    file_path = os.path.join('.','PyBank','Resources','budget_data.csv')
+    file_path = os.path.join('Resources','budget_data.csv')
     #Check point
     #print(file_path)
 
@@ -112,7 +110,7 @@ def print_result(totals, max_values):
     print(result_str)
 
     #Print it to the file
-    file_write_path = os.path.join('.','PyBank','Resources','budget_result.csv')
+    file_write_path = os.path.join('Resources','budget_result.csv')
     with open(file_write_path, 'w') as f_write:
         print(result_str, file=f_write)
 

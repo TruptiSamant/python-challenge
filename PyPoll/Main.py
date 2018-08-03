@@ -3,7 +3,7 @@ import csv
 from collections import Counter
 
 def PyPoll():
-    file_read_path = os.path.join('.','PyPoll','Resources','election_data.csv')
+    file_read_path = os.path.join('Resources','election_data.csv')
     #Open the file as dict
     reader = csv.DictReader(open(file_read_path))
     #get the list of Candidate by key
@@ -45,7 +45,7 @@ def PyPoll():
     print(result_str)
 
     #Print it to the file
-    file_write_path = os.path.join('.','PyPoll','Resources','election_result.csv')
+    file_write_path = os.path.join('Resources','election_result.csv')
     with open(file_write_path, 'w') as f_write:
         print(result_str, file=f_write)
 
